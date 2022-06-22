@@ -1,8 +1,9 @@
 const main = document.querySelector("main");
-const controls = ["./controls/arrow1.png",
+const controls = [ "./controls/arrow1.png",
 				  "./controls/arrow2.png",
 				  "./controls/arrow3.png",
-				  "./controls/arrow4.png"];
+				  "./controls/arrow4.png",
+				  "./controls/hand.png"];
 const whiteScopes = ["./timer/left-scope1.png",
 					"./timer/left-scope2.png",
 					"./timer/right-scope1.png",
@@ -43,7 +44,6 @@ function addVideo(main, iterator, videoArray) {
 
 		video.addEventListener("loadedmetadata", () => {
 			let htmlHeightWidthCoefficient = window.innerHeight / window.innerWidth;
-
 			let videoWidthHeightCoefficient = video.videoWidth / video.videoHeight;
 			let videoHeightWidthCoefficient = video.videoHeight / video.videoWidth;
 
@@ -67,7 +67,7 @@ function addVideo(main, iterator, videoArray) {
 }
 
 function playOnClick() {
-	this.style.cursor = "url(./controls/hand.png), auto";
+	this.style.cursor = "auto";
 	this.currentTime = 0;
 	this.play();
 	addTimer(main, this);
@@ -78,15 +78,11 @@ function addTimer(main, video) {
 	let scopesElements = [];
 	let controlsLastPosition = {};
 
-	let appearTime = randomInteger(0, video.duration - 10);
-	// let appearTime = 2;
+	// let appearTime = randomInteger(0, video.duration - 10);
+	let appearTime = 2;
 
 	timeoutStamp.push(setTimeout(() => {
-		whiteScopes.forEach(scope => {
-			scopesElements.push(createScopes(main, scope));
-		});
-
-		let secondsElements = addSeconds(main, appearTime, video.duration);
+		let secondsElements = createTimer(main, scopesElements, appearTime, video.duration);
 		let controlsElement = createControls(main, controls, secondsElements, controlsLastPosition);
 
 		goTimer(secondsElements);
@@ -142,15 +138,36 @@ function randomInteger(min, max) {
 	return (Math.floor((max + 1 - min) * Math.random() + min));
 }
 
-function createScopes(main, src) {
-	let elem = document.createElement("img");
-	let className = src.substring(src.lastIndexOf("/") + 1, src.lastIndexOf("."));
+function createTimer(main, scopesElements, appearTime, videoDuration) {
+	let containers = [];
 
-	elem.src = src;
-	elem.classList.add(className);
-	main.appendChild(elem);
+	createScopes(main, scopesElements, containers);
+	return (addSeconds(appearTime, videoDuration, containers));
+}
 
-	return (elem);
+function createScopes(main, scopesElements, containers) {
+	containers.push(createScopesInContainer(scopesElements, "left-timer-container", 0, 2),
+					createScopesInContainer(scopesElements, "right-timer-container", 2, 4));
+	containers.forEach(container => {
+		main.appendChild(container);
+	});
+}
+
+function createScopesInContainer(scopesElements, containerName, from, to) {
+	let container = document.createElement("div");
+
+	container.className = containerName;
+	for (let i = from; i < to; ++i) {
+		let elem = document.createElement("img");
+		let className = whiteScopes[i].substring(whiteScopes[i].lastIndexOf("/") + 1, whiteScopes[i].lastIndexOf("."));
+
+		elem.src = whiteScopes[i];
+		elem.classList.add(className);
+		container.appendChild(elem);
+		scopesElements.push(elem);
+	}
+
+	return (container);
 }
 
 function createControls(main, controls, secondsElements, controlsLastPosition) {
@@ -195,21 +212,23 @@ function goToTheNextVideo() {
 	mainFunction(main, iterator, videoArray);
 }
 
-function addSeconds(main, appearTime, videoDuration) {
+function addSeconds(appearTime, videoDuration, containers) {
 	let elements = [];
 	let howMuchSeconds = randomInteger(5, videoDuration - appearTime)
 	
-	elements.push(document.createElement("p"));
-	elements[0].classList.add("left-timer");
-	elements[0].innerText = howMuchSeconds;
-	main.appendChild(elements[0]);
-
-	elements.push(document.createElement("p"));
-	elements[1].classList.add("right-timer");
-	elements[1].innerText = howMuchSeconds;
-	main.appendChild(elements[1]);
+	createSeconds(containers, "left-timer", howMuchSeconds, elements, 0);
+	createSeconds(containers, "right-timer", howMuchSeconds, elements, 1);
 
 	return (elements);
+}
+
+function createSeconds(containers, className, howMuchSeconds, elements, containerIndex) {
+	let element = document.createElement("p");
+
+	element.classList = className;
+	element.innerHTML = howMuchSeconds;
+	containers[containerIndex].appendChild(element);
+	elements.push(element);
 }
 
 function moveButton(controlsElement, secondsElements, main, controlsLastPosition) {
