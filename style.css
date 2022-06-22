@@ -29,7 +29,7 @@ main {
 .controls {
 	position: fixed;
 	display: inline;
-	transition: transform 2s;
+	transition: transform 5s;
 }
 
 .hand {
@@ -94,13 +94,13 @@ video {
 }
 
 .left-timer {
-	left: 1vw;
+	left: 2vw;
 	top: 50%;
 	box-sizing: border-box;
 }
 
 .right-timer {
-	right: 1vw;
+	right: 2vw;
 	top: 50%;
 	box-sizing: border-box;
 }
@@ -163,4 +163,14 @@ p {
 	line-height: 16px;
 	color: #FFFFFF;
 	position: relative;
+}
+
+@media (orientation: landscape) {
+	.left-timer {
+		left: 1vw;
+	}
+
+	.right-timer {
+		right: 1vw;
+	}
 }
