@@ -1,0 +1,153 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: black;
+	height: 100vh;
+	box-sizing: border-box;
+	text-align: center;
+	display: flex; 
+	align-items: center;
+}
+
+main {
+	margin: 0 auto;
+	padding: 0;
+	width: fit-content;
+	height: fit-content;
+
+	color: white;
+	position: relative;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.controls {
+	position: fixed;
+	display: inline;
+	transition: transform 2s;
+}
+
+.hand {
+	position: absolute;
+	left: calc(100% / 2 - 28.89px / 2);
+	top: calc(50vh - 36.27px / 2);
+	bottom: 25.45%;
+	width: 28.89px;
+	height: 36.27px;
+	box-sizing: border-box;
+}
+
+.arrow1 {
+	position: absolute;
+	margin: calc((100% - 42.67px) / 2) calc((100% - 42.77px) / 2);
+	height: 42.67px;
+	width: 42.77px;
+	cursor: url(./controls/hand.png), auto;
+	box-sizing: border-box;
+}
+
+.arrow2 {
+	position: absolute;
+	margin: calc((100% - 54.36px) / 2) calc((100% - 54.67px) / 2);
+	height: 54.63px;
+	width: 54.67px;
+	cursor: url(./controls/hand.png), auto;
+	box-sizing: border-box;
+}
+
+.arrow3 {
+	position: absolute;
+	margin: calc((100% - 86.39px) / 2) calc((100% - 82.38px) / 2);
+	height: 86.39px;
+	width: 82.38px;
+	cursor: url(./controls/hand.png), auto;
+	box-sizing: border-box;
+}
+
+.arrow4 {
+	position: absolute;
+	margin: calc((100% - 50.13px) / 2) calc((100% - 43.86px) / 2);
+	height: 50.13px;
+	width: 43.86px;
+	cursor: url(./controls/hand.png), auto;
+	box-sizing: border-box;
+}
+
+video {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.left-timer,
+.right-timer {
+	position: absolute;
+
+	/* WEB - Desktop/Tiny - Regular */
+	box-sizing: border-box;
+
+	/* identical to box height, or 133% */
+}
+
+.left-timer {
+	left: 10%;
+	top: 50%;
+	box-sizing: border-box;
+}
+
+.right-timer {
+	right: 10%;
+	top: 50%;
+	box-sizing: border-box;
+}
+
+.left-scope1 {
+	position: absolute;
+	/* height: 278.49px; */
+	/* width: 31.70px; */
+	height: 75%;
+	left: 1%;
+	top: 12.5%;
+	box-sizing: border-box;
+	/* top: calc(100% / 2 - 278.49px / 2); */
+}
+
+.left-scope2 {
+	position: absolute;
+	/* height: 274.49px; */
+	/* width: 36.06px; */
+	height: 75%;
+	left: 2%;
+	top: 12.5%;
+	box-sizing: border-box;
+	/* top: calc(100% / 2 - 274.49px / 2); */
+}
+
+.right-scope1 {
+	position: absolute;
+	height: 75%;
+	right: 1%;
+	top: 12.5%;
+}
+
+.right-scope2 {
+	position: absolute;
+	height: 75%;
+	right: 2%;
+	top: 12.5%;
+	box-sizing: border-box;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 2vh;
+	line-height: 16px;
+	color: #FFFFFF;
+	position: relative;
+}
