@@ -177,7 +177,7 @@ function createControls(main, controls, secondsElements, controlsLastPosition) {
 	let yElem = randomInteger(freeHeight[0], freeHeight[1]);
 	let parent = document.createElement("div");
 
-	console.log(freeWidth);
+	// console.log(freeWidth);
 
 	parent.className = "controls";
 		controls.forEach(control => {
@@ -236,7 +236,7 @@ function moveButton(controlsElement, secondsElements, main, controlsLastPosition
 					  (window.innerHeight - main.clientHeight) / 2 + main.clientHeight * 0.875 - maxControlsHeight / 2];
 	let freeWidth = [(window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.15 + secondsElements[0].clientWidth + window.innerWidth / 10 / 2, (window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.85 - secondsElements[1].clientWidth - window.innerWidth / 10 / 1.5];
 
-	console.log(maxControlsWidth);
+	// console.log(maxControlsWidth);
 
 	timeoutStamp.push(setTimeout( () => {
 		changeButtonsCoordinates(freeHeight, freeWidth, controlsElement, controlsLastPosition);
