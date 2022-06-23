@@ -34,44 +34,64 @@ main {
 
 .hand {
 	position: absolute;
-	margin: calc((100% - 36.27px) / 2) calc((100% - 28.89px) / 2);;
-	width: 28.89px;
-	height: 36.27px;
+	/* margin: calc((100% - 36.27px) / 2) calc((100% - 28.89px) / 2); */
+	/* width: 28.89px; */
+	/* height: 36.27px; 0.35 */
+
+	width: 3.5vw;
+	margin: calc((100% - 3.5vw) / 2) calc((100% - 3.5vw) / 2);
+
 	box-sizing: border-box;
 }
 
 .arrow1 {
 	position: absolute;
-	margin: calc((100% - 42.67px) / 2) calc((100% - 42.77px) / 2);
-	height: 42.67px;
-	width: 42.77px;
+	/* margin: calc((100% - 42.67px) / 2) calc((100% - 42.77px) / 2); */
+	/* height: 42.67px; */
+	/* width: 42.77px; 0.52 */
+
+	width: 5.2vw;
+	margin: calc((100% - 5.2vw) / 2) calc((100% - 5.2vw) / 2);
+
 	cursor: pointer;
 	box-sizing: border-box;
 }
 
 .arrow2 {
 	position: absolute;
-	margin: calc((100% - 54.36px) / 2) calc((100% - 54.67px) / 2);
-	height: 54.63px;
-	width: 54.67px;
+	/* margin: calc((100% - 54.36px) / 2) calc((100% - 54.67px) / 2); */
+	/* height: 54.63px; */
+	/* width: 54.67px; 0.66 */
+
+	width: 6.6vw;
+	margin: calc((100% - 6.6vw) / 2) calc((100% - 6.6vw) / 2);
+
 	cursor: pointer;
 	box-sizing: border-box;
 }
 
 .arrow3 {
 	position: absolute;
-	margin: calc((100% - 86.39px) / 2) calc((100% - 82.38px) / 2);
-	height: 86.39px;
-	width: 82.38px;
+	/* margin: calc((100% - 86.39px) / 2) calc((100% - 82.38px) / 2); */
+	/* height: 86.39px; */
+	/* width: 82.38px; */
+
+	width: 10vw;
+	margin: calc((100% - 10vw) / 2) calc((100% - 10vw) / 2);
+
 	cursor: pointer;
 	box-sizing: border-box;
 }
 
 .arrow4 {
 	position: absolute;
-	margin: calc((100% - 50.13px) / 2) calc((100% - 43.86px) / 2);
-	height: 50.13px;
-	width: 43.86px;
+	/* margin: calc((100% - 50.13px) / 2) calc((100% - 43.86px) / 2); */
+	/* height: 50.13px; */
+	/* width: 43.86px; 0.53 */
+
+	width: 5.3vw;
+	margin: calc((100% - 5.3vw) / 2) calc((100% - 5.3vw) / 2);
+
 	cursor: pointer;
 	box-sizing: border-box;
 }
@@ -159,7 +179,7 @@ p {
 	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 2vh;
+	font-size: 2vw;
 	line-height: 16px;
 	color: #FFFFFF;
 	position: relative;
@@ -172,5 +192,33 @@ p {
 
 	.right-timer {
 		right: 1vw;
+	}
+
+	.hand {
+		width: 3.5vh;
+		margin: calc((100% - 3.5vh) / 2) calc((100% - 3.5vh) / 2);
+	}
+
+	.arrow1 {
+		width: 5.2vh;
+		margin: calc((100% - 5.2vh) / 2) calc((100% - 5.2vh) / 2);
+	} /* 0.52 */
+
+	.arrow2 {
+		width: 6.6vh;
+		margin: calc((100% - 6.6vh) / 2) calc((100% - 6.6vh) / 2);
+	} /* 0.66 */
+
+	.arrow3 {
+		width: 10vh;
+		margin: calc((100% - 10vh) / 2) calc((100% - 10vh) / 2);
+	}
+	.arrow4 /*0.53 */ {
+		width: 5.3vh;
+		margin: calc((100% - 5.3vh) / 2) calc((100% - 5.3vh) / 2);
+	}
+
+	p {
+		font-size: 2vh;
 	}
 }
