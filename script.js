@@ -50,15 +50,15 @@ function addVideo(main, iterator, videoArray) {
 
 			if (videoWidthHeightCoefficient < 1) {
 				if (videoHeightWidthCoefficient > htmlHeightWidthCoefficient) {
-					video.style.height = "99.6vh";
+					video.style.height = "100vh";
 				} else {
-					video.style.width = "99.6vw";
+					video.style.width = "100vw";
 				}
 			} else {
 				if (videoHeightWidthCoefficient > htmlHeightWidthCoefficient) {
-					video.style.height = "99.6vh";
+					video.style.height = "100vh";
 				} else {
-					video.style.width = "99.6vw";
+					video.style.width = "100vw";
 				}
 			}
 		});
@@ -78,9 +78,7 @@ function playOnClick() {
 function addTimer(main, video) {
 	let scopesElements = [];
 	let controlsLastPosition = {};
-
-	// let appearTime = randomInteger(0, video.duration - 10);
-	let appearTime = 2;
+	let appearTime = randomInteger(0, video.duration - 10);
 
 	timeoutStamp.push(setTimeout(() => {
 		let secondsElements = createTimer(main, scopesElements, appearTime, video.duration);
@@ -174,10 +172,12 @@ function createScopesInContainer(scopesElements, containerName, from, to) {
 function createControls(main, controls, secondsElements, controlsLastPosition) {
 	let freeHeight = [(window.innerHeight - main.clientHeight) / 2 + main.clientHeight * 0.125 + maxControlsHeight / 2,
 					  (window.innerHeight - main.clientHeight) / 2 + main.clientHeight * 0.875 - maxControlsHeight / 2];
-	let freeWidth = [(window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.15 + secondsElements[0].clientWidth + maxControlsWidth / 2, (window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.85 - secondsElements[1].clientWidth - maxControlsWidth / 2];
+	let freeWidth = [(window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.15 + secondsElements[0].clientWidth + window.innerWidth / 10 / 2, (window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.85 - secondsElements[1].clientWidth - window.innerWidth / 10 / 1.125];
 	let xElem = randomInteger(freeWidth[0], freeWidth[1]);
 	let yElem = randomInteger(freeHeight[0], freeHeight[1]);
 	let parent = document.createElement("div");
+
+	console.log(freeWidth);
 
 	parent.className = "controls";
 		controls.forEach(control => {
@@ -234,7 +234,7 @@ function createSeconds(containers, className, howMuchSeconds, elements, containe
 function moveButton(controlsElement, secondsElements, main, controlsLastPosition) {
 	let freeHeight = [(window.innerHeight - main.clientHeight) / 2 + main.clientHeight * 0.125 + maxControlsHeight / 2,
 					  (window.innerHeight - main.clientHeight) / 2 + main.clientHeight * 0.875 - maxControlsHeight / 2];
-	let freeWidth = [(window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.15 + secondsElements[0].clientWidth + maxControlsWidth / 2, (window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.85 - secondsElements[1].clientWidth - maxControlsWidth / 2];
+	let freeWidth = [(window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.15 + secondsElements[0].clientWidth + window.innerWidth / 10 / 2, (window.innerWidth - main.clientWidth) / 2 + main.clientWidth * 0.85 - secondsElements[1].clientWidth - window.innerWidth / 10 / 1.5];
 
 	console.log(maxControlsWidth);
 
@@ -242,7 +242,7 @@ function moveButton(controlsElement, secondsElements, main, controlsLastPosition
 		changeButtonsCoordinates(freeHeight, freeWidth, controlsElement, controlsLastPosition);
 		intervalStamp.push(setInterval( () => {
 			changeButtonsCoordinates(freeHeight, freeWidth, controlsElement, controlsLastPosition);
-		}, 5 * 1000));
+		}, 1 * 1000));
 	}, 0));
 }
 
